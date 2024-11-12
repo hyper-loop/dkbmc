@@ -9,5 +9,15 @@
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
     }
+  },
+  "objectSettings":{
+    "broker__c":{
+      "sharingModel": "private",
+      "defaultRecordType": "default"
+    },
+    "property__c":{
+      "sharingModel": "private",
+      "defaultRecordType": "default"
+    }
   }
 }
