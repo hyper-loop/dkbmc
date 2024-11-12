@@ -1,0 +1,30 @@
+/**
+ * @description       : 
+ * @author            : namho.kangR_D@dkbmc.com
+ * @group             : 
+ * @last modified on  : 2024-09-13
+ * @last modified by  : namho.kangR_D@dkbmc.com 
+ * Modifications Log
+ * Ver   Date         Author                    Modification
+ * 1.0   2024-09-13   namho.kangR_D@dkbmc.com   Initial Version
+**/
+public with sharing class AccountSearchController {
+    @AuraEnabled
+    public static List<Account> searchAccounts( String searchTerm ) {
+        List<Account> accounts = new List<Account>();
+        if(String.isNotBlank(searchTerm)){
+            List<List<SObject>> searchResults = [
+                FIND :searchTerm
+                RETURNING Account(
+                    Id, Name, Phone, Website,
+                    BillingStreet, BillingCity,
+                    BillingState, BillingPostalCode
+                    ORDER BY Name
+                    LIMIT 10
+                )
+            ];
+            accounts = searchResults[0];
+        }
+        return accounts;
+    }
+}

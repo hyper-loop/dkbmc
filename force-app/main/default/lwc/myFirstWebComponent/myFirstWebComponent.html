@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : namho.kangR_D@dkbmc.com
+  @group             : 
+  @last modified on  : 2024-09-12
+  @last modified by  : namho.kangR_D@dkbmc.com
+  Modifications Log
+  Ver   Date         Author                    Modification
+  1.0   2024-09-12   namho.kangR_D@dkbmc.com   Initial Version
+-->
+<template>
+	<lightning-card title="ContactInformation" icon-name="custom:custom14">
+		<div class="slds-m-around_medium">
+			<template for:each={contacts} for:item="contact">
+				<div key={contact.Id}>
+					{contact.Name}, {contact.Title}
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
